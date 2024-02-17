@@ -1,0 +1,6 @@
+data/com.example.CheckWriter.desktop.in
+data/com.example.CheckWriter.metainfo.xml.in
+data/com.example.CheckWriter.gschema.xml
+src/main.py
+src/window.py
+src/window.ui
