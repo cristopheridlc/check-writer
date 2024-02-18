@@ -48,26 +48,38 @@ def number_to_words(amount):
     def parse_hundred(hundred):
         result = ""
         if hundred > 99:
-            result += units[hundred // 100] + " Hundred "
+            result += units[hundred // 100] + " Hundred"
             hundred %= 100
+            if hundred > 0:
+                result += " and "
         if hundred > 19:
-            result += tens[hundred // 10] + " "
+            result += tens[hundred // 10]
             hundred %= 10
-        if 0 < hundred < 10:
-            result += units[hundred] + " "
+            if hundred > 0:
+                result += "-" + units[hundred]
         elif hundred >= 10:
-            result += teens[hundred - 10] + " "
-        return result
+            result += teens[hundred - 10]
+        else:
+            result += units[hundred]
+        return result.strip()
 
     def parse_group(number, index):
-        return "" if number == 0 else number_to_words(number) + " " + thousands[index] + ", "
+        if number == 0:
+            return ""
+        segment = parse_hundred(number)
+        if segment:
+            segment += " " + thousands[index] + (" " if index > 0 else "")
+        return segment
+
 
     i = 0
     while amount >= 1000:
-        words = parse_group(amount % 1000, i) + words
+        if amount % 1000 != 0:
+            words = parse_group(amount % 1000, i) + (", " + words if words else "")
         amount //= 1000
         i += 1
-    words = parse_hundred(amount) + words
+    words = parse_group(amount, i) + (" " if words else "") + words
+
 
     return words.strip().rstrip(',')
 
