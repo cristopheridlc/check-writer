@@ -5,20 +5,49 @@
     <child>
       <object class="GtkShortcutsSection">
         <property name="section-name">shortcuts</property>
-        <property name="max-height">10</property>
+        <property name="max-height">12</property>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes" context="shortcut window">Check Writer</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">New Check</property>
+                <property name="accelerator">&lt;Primary&gt;n</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Save to Register</property>
+                <property name="accelerator">&lt;Primary&gt;s</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Print Check</property>
+                <property name="accelerator">&lt;Primary&gt;p</property>
+              </object>
+            </child>
+          </object>
+        </child>
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes" context="shortcut window">General</property>
             <child>
               <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Preferences</property>
+                <property name="accelerator">&lt;Primary&gt;comma</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Show Shortcuts</property>
-                <property name="action-name">win.show-help-overlay</property>
+                <property name="accelerator">&lt;Primary&gt;question</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
-                <property name="action-name">app.quit</property>
+                <property name="accelerator">&lt;Primary&gt;q</property>
               </object>
             </child>
           </object>
